@@ -38,7 +38,7 @@
 % ------------------------- %
 
 \newcommand{\vectbf}[2][bold vector]{
-    \vect{\textbf{#2}}
+    \vect{\boldsymbol{#2}}
 }
 
 % ------------------------- %
@@ -65,4 +65,10 @@
     \mathrel{\mathop{#3}\limits_{
         \if x c#1\relax\mathclap{#2}\else#2\fi
     }}
+}
+
+% ------------------------- %
+
+\newcommand{\ifrac}[2]{
+    {#1}\:/\:{#2}
 }

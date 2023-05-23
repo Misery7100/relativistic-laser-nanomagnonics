@@ -2,8 +2,8 @@
 %  Layout
 % ------------------------- %
 
-\documentclass[10pt]{article}
-\linespread{1.05}
+\documentclass[12pt]{extarticle}
+\linespread{1.3}
 \setlength{\parskip}{0.3em}
 \hfuzz=5002pt
 
@@ -30,7 +30,7 @@
 \usepackage{mathtools}
 \usepackage[unicode=true,hidelinks]{hyperref}
 %\usepackage{babelbib}
-\usepackage[backend=biber, style=ieee, bibencoding=utf8, language=auto, autolang=other, citestyle=numeric-comp]{biblatex}
+\usepackage[backend=biber, style=ieee, bibencoding=utf8, language=auto, autolang=other, citestyle=numeric-comp, maxbibnames=4]{biblatex}
 \usepackage[oldsyntax]{stackengine}
 \usepackage[labelformat=simple, labelsep=colon]{subfig}
 %\usepackage{MnSymbol}
@@ -40,6 +40,7 @@
 \usepackage{scalerel}
 %\usepackage{siunitx}
 \usepackage{euscript}
+\usepackage{upgreek}
 
 % ------------------------- %
 %  Custom components
@@ -50,7 +51,7 @@
 \input{custom/figure.tex}
 \input{custom/slant_unslant.tex}
 
-% \addbibresource{bibliography/bibliography.bib}
+\addbibresource{components/bibliography.bib}
 
 % ------------------------- %
 %  Document
@@ -82,30 +83,19 @@
 
 	% add components
 
-	\title{Релятивистская лазерная наномагноника}
-	% \author{
-	% 	А.А. Андреев\textsuperscript{1, 2}, Л.А. Литвинов\textsuperscript{1}
-	% }
-	\date{}
-	% \date{
-	% 	\normalsize{\textit{\textsuperscript{1}Санкт-Петербургский государственный университет, 199034 Санкт-Петербург, Россия \\ \textsuperscript{2}Физико-технический институт имени А.Ф.Иоффе, 188640 Санкт-Петербург, Россия}}
-	% }
-	\maketitle
+	\input{components/titlepage.tex}
+	
+	\clearpage
+	\tableofcontents
 
-	% \input{components/intro.tex}
-	% \input{components/sketches.tex}
-	% \input{components/basemodel.tex}
-	\input{components/epochresults.tex}
-	% \input{components/epochcyl.tex}
-
-	% \input{components/notes.tex}
+	\clearpage
+	\input{components/intro.tex}
+	\input{components/linear_interaction.tex}
+	\input{components/nonlinear_interaction.tex}
+	\input{components/conclusion.tex}
 
 	% add bibliography
 	% \clearpage
-
-	% \printbibliography
-	%\selectbiblanguage{russian}
-	%\bibliographystyle{ieeetr}
-	%\bibliography{../bibliography/bibliography.bib}
+	\printbibliography
 
 \end{document}

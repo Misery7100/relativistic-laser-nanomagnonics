@@ -1,0 +1,182 @@
+\section{Линейное взаимодействие лазерного пучка с нанообъектом}
+
+\subsection{Аналитическое описание}
+
+Взаимодействие лазерного импульса с металлическим кластером на начальных этапах можно описать с помощью модели рассеяния Ми. В контексте релятивистской лазерной наномагноники мы используем эту модель для описания взаимодействия между лазерным импульсом и наноразмерным кластером из материала с отрицательной диэлектрической проницаемостью.
+
+Пусть пучок гармоник падает на одиночный сферический кластер с изотропным диэлектрическим откликом~(\autoref{task_scheme:image}). Мы рассматриваем поле, которые приходит на кластер по отношению к полю лазерного пучка, кластер находится в каустике пучка гармоник, а его радиус a много меньше ширины каустической зоны, что позволяет считать приходящие на него волны плоскими.
+
+    \img[img/spna2/task_scheme]{Общая схема задачи.}{task_scheme:image}{0.65\textwidth}
+
+Обобщенно схему задачи можно представить следующим образом: падающее лазерное поле $\vectbf{E}{i}{}$ направлено вдоль декартовой оси, т.е. $\vectbf{k}{}{} \uparrow \uparrow \vectbf{e}{x}{}$, кластер имеет радиус $R$ и изготовлен из материала, имеющего изотропную диэлектрическую проницаемость $\varepsilon$, описываемую моделью Друде~\cite{litv_andr}:
+
+\begin{equation}
+    \varepsilon (\omega) = 1 - {\left( \frac{\omega_{pe}}{\omega} \right)}^2 \frac{1}{1+i \beta_{e}}, \qquad \omega_{pe} = \sqrt{\frac{4 \pi e^2 n_e}{m_e}},
+    \label{eps_plasma}
+\end{equation}
+
+\noindent где $\omega$ --- частота рассматриваемой гармоники, $\omega_{pe}$ --- плазменная частота электронов, $n_e = Z n_i$ --- электронная плотность, $Z$ --- средняя степень ионизации, $n_i$ --- ионная плотность. $\beta_{e} = \nu_e / \omega$ и $\nu_e$ --- коэффициент электрон-ионных столкновений в приближении Спитцера. 
+
+Отклик кластера на внешней воздействие представлен рассеянным полем $\vectbf{E}{s}{}$. Выделим отдельную гармонику падающего поля с частотой $\omega_L$, предполагая, что гармоники в пучке не взаимодействуют друг с другом и итоговый результат будет представлять собой суперпозицию отдельных взаимодействий кластера с гармониками падающего пучка. Также необходимо отметить, что мы рассматриваем случай, когда частота электрон-ионных столкновений $\nu_e \ll \omega_L$ много меньше частоты гармоники, что позволяет считать взаимодействие бесстолкновительным~\cite{iclo2022}.
+
+В общем случае выделенная гармоническая компонента будет иметь эллиптическую поляризацию. Эллиптически поляризованную волну можем разложить, используя зависимость поворота вектора напряженности от времени, вводя её искуственно при помощи гармонических функций. Для простоты возьмем $\vectbf{k}{}{} \uparrow \uparrow \vectbf{e}{x}{}$, тогда:
+
+    \begin{equation}
+        \vectbf{E}{i}{\textit{ellipt}} \left( k, \vectbf{r}{}{}, t \right) = \cos{\left( \omega_L t + \delta \right)}\:\vectbf{E}{i}{x} \left( k, \vectbf{r}{}{}, t  \right) + \sin{\left( \omega_L t + \delta \right)}\:\vectbf{E}{i}{y} \left( k, \vectbf{r}{}{}, t  \right),
+        \label{E_i_ellipt}
+    \end{equation}
+
+    \begin{equation}
+        \vectbf{E}{i}{y,z} \left( k, \vectbf{r}{}{}, t \right) = E^{y,z}_L\:e^{i\omega_L t-ikx}\:\vectbf{e}{y,z}{},
+        \label{E_i_x}
+    \end{equation}
+
+\noindent где $\delta \in \left[0,\:2\pi \right)$ --- угол поворота вектора напряженности относительно оси $x$ в плоскости $xy$ в начальный момент времени, $E^{y,z}_L$ --- амплитуды компонент поля. Рассеянные поля без гармонических составляющих в разложении по сферическим гармоникам, полученные в соответствии с~\cite{boren_huffman}, дают:
+
+    \begin{equation}
+        \vectbf{E}{s}{y} \left( k, \vectbf{r}{}{} \right) = \sum_{n = 1}^{\infty}E_L^y \: E_n \left[i a_n\left(kR, m\right) \vectbf{N}{e1n}{(3)}\left( k, \vectbf{r}{}{} \right) - b_n \vectbf{M}{o1n}{(3)}\left( k, \vectbf{r}{}{} \right) \right],
+        \label{E_s_x}
+    \end{equation}
+
+    \begin{equation}
+        \vectbf{E}{s}{z} \left( k, \vectbf{r}{}{} \right) = \sum_{n = 1}^{\infty}E_L^z \: E_n \left[i a_n\left(kR, m\right) \vectbf{N}{o1n}{(3)}\left( k, \vectbf{r}{}{} \right) - b_n \vectbf{M}{e1n}{(3)}\left( k, \vectbf{r}{}{} \right) \right],
+        \label{E_s_y}
+    \end{equation}
+
+    \begin{equation*}
+        E_n = i^{n} \frac{2n + 1}{n \left(n + 1\right)},
+    \end{equation*}
+
+\noindent где $\vectbf{N}{e1n}{(3)},\:\vectbf{M}{e1n}{(3)}$ --- четные электрические и магнитные гармоники, $\vectbf{N}{o1n}{(3)},\:\vectbf{M}{o1n}{(3)}$ --- нечетные электрические и магнитные гармоники соответственно из~\cite{boren_huffman}, верхний индекс указывает на вид сферических функций в радиальной части, нижний индекс $o$ или $e$ соответствует синусоидальной или косинусоидальной зависимости от азимутального угла:
+
+    \begin{equation}
+        \vectbf{N}{e1n}{(3)} = \frac{h_n \left( \rho \right)}{\rho} \: \cos{\varphi} \: n\left( n + 1 \right) \: P_n^1 \left( \cos{\theta} \right) \: \vectbf{e}{r}{} + \cos{\varphi} \: \frac{d P_n^1 \left( \cos{\theta} \right)}{d \theta} \: \frac{1}{\rho} \: \frac{d}{d\rho} \: \left[ \rho h_n \left( \rho \right) \right] \: \vectbf{e}{\theta}{} -
+        \label{Ne1n3}
+    \end{equation}
+    \begin{equation*}
+        - \sin{\varphi} \: \frac{P_n^1 \left( \cos{\theta} \right)}{\sin{\theta}} \: \frac{1}{\rho} \: \frac{d}{d\rho} \: \left[ \rho h_n \left( \rho \right) \right] \: \vectbf{e}{\varphi}{},
+    \end{equation*}
+
+    \begin{equation}
+        \vectbf{M}{e1n}{(3)} = - \frac{1}{\sin{\theta}} \: \sin{\varphi} \: P_n^1 \left( \cos{\theta} \right) \: h_n \left( \rho \right) \: \vectbf{e}{\theta}{} - \cos{\varphi} \: \frac{d P_n^1 \left( \cos{\theta} \right)}{d \theta} \: h_n \left( \rho \right) \: \vectbf{e}{\varphi}{},
+        \label{Me1n3}
+    \end{equation}
+
+    \begin{equation}
+        \vectbf{N}{o1n}{(3)} = \frac{h_n \left( \rho \right)}{\rho} \: \sin{\varphi} \: n\left( n + 1 \right) \: P_n^1 \left( \cos{\theta} \right) \: \vectbf{e}{r}{} + \sin{\varphi} \: \frac{d P_n^1 \left( \cos{\theta} \right)}{d \theta} \: \frac{1}{\rho} \: \frac{d}{d\rho} \: \left[ \rho h_n \left( \rho \right) \right] \: \vectbf{e}{\theta}{} +
+        \label{No1n3}
+    \end{equation}
+    \begin{equation*}
+        + \cos{\varphi} \: \frac{P_n^1 \left( \cos{\theta} \right)}{\sin{\theta}} \: \frac{1}{\rho} \: \frac{d}{d\rho} \: \left[ \rho h_n \left( \rho \right) \right] \: \vectbf{e}{\varphi}{},
+    \end{equation*}
+
+    \begin{equation}
+        \vectbf{M}{o1n}{(3)} = \frac{1}{\sin{\theta}} \: \cos{\varphi} \: P_n^1 \left( \cos{\theta} \right) \: h_n \left( \rho \right) \: \vectbf{e}{\theta}{} - \sin{\varphi} \: \frac{d P_n^1 \left( \cos{\theta} \right)}{d \theta} \: h_n \left( \rho \right) \: \vectbf{e}{\varphi}{},
+        \label{Mo1n3}
+    \end{equation}
+    \begin{equation*}
+    \end{equation*}
+
+\noindent где $\rho = kr$. Коэффициенты разложения Фурье в (\ref{E_s_x}, \ref{E_s_y}) по векторным сферическим гармоникам в случае изотропной среды являются коэффициентами рассеянного поля:
+
+    \begin{equation}
+		a_n(\chi,\:m) = \frac{m \func{\psi}{n}{\prime}{\chi} \func{\psi}{n}{}{m \chi} - \func{\psi}{n}{\prime}{m \chi} \func{\psi}{n}{}{\chi}}{m \func{\xi}{n}{\prime}{x} \func{\psi}{n}{}{m \chi} - \func{\psi}{n}{\prime}{m \chi} \func{\xi}{n}{}{\chi}},
+		\label{an_bessel}
+    \end{equation}
+
+    \begin{equation}
+        b_n(\chi,\:m) = \frac{\func{\psi}{n}{\prime}{\chi} \func{\psi}{n}{}{m \chi} - m \func{\psi}{n}{\prime}{m \chi} \func{\psi}{n}{}{\chi}}{\func{\xi}{n}{\prime}{\chi} \func{\psi}{n}{}{m \chi} - m \func{\psi}{n}{\prime}{m \chi} \func{\xi}{n}{}{\chi}},
+        \label{bn_bessel}
+    \end{equation}
+    \begin{equation*}
+    \end{equation*}
+
+\noindent где $\funccomp{\psi}{n}{}{\rho} = \rho \funccomp{j}{n}{}{\rho}$, $\funccomp{\xi}{n}{}{\rho} = \rho \funccomp{h}{n}{}{\rho}$ --- функции Риккати-Бесселя, $h_n = j_n + i \gamma_n$ --- сферические функции Ханкеля первого рода, $\chi = kR$ --- безразмерный радиус кластера, $ m = \sqrt{\varepsilon} $ --- комплексный коэффициент преломления.
+
+В силу линейности разложения (\ref{E_i_ellipt}) и изотропности отклика кластера, рассеянное поле эллиптически поляризованной волны представляется в виде:
+
+    \begin{equation}
+        \vectbf{E}{s}{\textit{ellipt}} \left( k, \vectbf{r}{}{}, t \right) = \cos{\left( \omega_L t + \delta \right)}\:\vectbf{E}{s}{y} \left( k, \vectbf{r}{}{}, t \right) + \sin{\left( \omega_L t + \delta \right)}\:\vectbf{E}{s}{z} \left( k, \vectbf{r}{}{}, t \right),
+        \label{E_s_ellipt}
+    \end{equation}
+
+\noindent где (\ref{E_s_x}, \ref{E_s_y}) переписаны с учетом гармонических составляющих согласно~(\ref{E_i_x}). 
+
+Так как компоненты поля $y$ и $z$ идентичны с точностью до поворота на $\pi\:/\:2$ в плоскости $yz$ и учета отношения амплитуд, результирующее поле может быть представлено как вращение одной из компонент поля с переменной амплитудой:
+
+    \begin{equation}
+        \vectbf{E}{s}{\textit{ellipt}} \left( k, \vectbf{r}{}{}, t \right) = \sqrt{{\left( E^y_L \:\cos{\left( \omega_L t + \delta \right)} \right)}^{2} + {\left( E^z_L \:\sin{\left( \omega_L t + \delta \right)} \right)}^{2}} \: M_x \left( \omega_L t + \delta \right) \: \vectbf{E}{s}{y} \left( k, \vectbf{r}{}{} \right),
+        \label{E_s_rotate}
+    \end{equation}
+
+    \begin{equation}
+        M_x \left( \alpha \right) = 
+        \begin{pmatrix}
+            1 & 0 & 0\\
+            0 & \cos{\alpha} & -\sin{\alpha}\\
+            0 & \sin{\alpha} & \cos{\alpha}
+        \end{pmatrix}
+    \end{equation}
+    \begin{equation*}
+    \end{equation*}
+
+\noindent где $M_x$ --- матрица вращения вокруг оси $x$. При этом результирующее электрическое поле в результате взаимодействия излучения с кластером будет выражаться как:
+
+    \begin{equation}
+        \vectbf{E}{}{} = \vectbf{E}{}{\textit{ellipt}} = \vectbf{E}{i}{\textit{ellipt}} + \vectbf{E}{s}{\textit{ellipt}}
+    \end{equation}
+
+\subsection{Взаимодействие с линейно-поляризованным излучением}
+
+Предположим, что выделенная гармоника, падающая на кластер, поляризована линейно вдоль декартовой оси $y$ и имеет длину волны $\lambda_L = 800$ nm. При помощи полученных ранее выражений~(\ref{E_i_x}, \ref{E_s_x}) рассчитаем поле на границе сферического кластера с радиусом $R = 200$ nm и диэлектрической проницаемостью $\varepsilon = -21$, которая соответствует электронной плотности кластера $n_{e0} = 22 n_c$ в критических единицах.
+
+    \img[img/spna2/pseudo_circ/wlen_800_0deg.png]{Модуль электрического поля на поверхности сферического кластера с радиусом $R = 200$ nm ($\chi = 1.6$), $\varepsilon = -21$ при взаимодействии с линейно поляризованной волной.}{wlen_800_0deg:image}{0.8\textwidth}
+
+Полученный результат для модуля электрического поля на границе соответствует значениям диаграммы в "оптимальное" время (обозначено белой линией), представленной в~\cite{liseykina} - максимум отвечает $\theta_0 = 0.26 \pi$, второй максимум, отвечает аналогичному значению $\theta_1 = 0.71 \pi$. 
+
+Построенная диаграмма максимума~(\autoref{linear_check_liz:c}) также соответствует диаграмме из~\cite{liseykina}~(\autoref{linear_check_liz:b}) с точностью до отстройки фазы гармонической функции, описывающей изменение электрического поля во времени, которая является разницей между "оптимальным" временем для \autoref{linear_check_liz:b} и \autoref{linear_check_liz:c}. Можно заметить отличие в форме пятен, описывающих эволюцию модуля электрического поля на поверхности кластера. Это связано с тем, что для получения диаграммы~\autoref{linear_check_liz:a} авторы использовали более сложную самосогласованную модель~\cite{liseykina}.
+
+\begin{figure}[H]
+    \subimgtwo[img/spna2/liz_mie_lambda4.png]{Максимум модуля электрического поля от полярного угла $\theta$ и времени $t$ в лазерных циклах~\cite{liseykina}.}{linear_check_liz:b}{0.47\textwidth}
+    \hfil
+    \subimgtwo[img/spna2/2D_check_liz.pdf]{Максимум модуля электрического поля от полярного угла $\theta$ и времени $t$ в лазерных циклах.}{linear_check_liz:c}{0.47\textwidth}
+    \\
+    \subimgtwo[img/spna2/linear_check_liz.pdf]{$|\vectbf{E}{}{}|$ на границе сферического кластера в плоскости волнового вектора и вектора поляризации в "оптимальное" время.}{linear_check_liz:a}{0.5\textwidth}
+    \caption{Сравнение результатов для линейной поляризации.}\label{linear_check_liz:image}
+\end{figure}
+
+Определим "горячие пятна", соответствующие генерации электронных сгустков, при помощи порога по значению электрического поля на поверхности кластера, связанного с работой выхода электронов для заданного вещества:
+
+    \begin{equation}
+        E_x \leq \frac{W_{\textrm{out}}}{e h_{\textrm{skin}}} \approx -2.7 \cdot 10^{7} \:\textrm{V/m}
+    \end{equation}
+
+Применяя полученное условие к результатам, полученным ранее~(\autoref{wlen_800_0deg:image}), а также вводя зависимость поля от времени, можем проследить изменения "горячих пятен" во времени.
+
+% для того, чтобы сравнить результаты с полученными в~\cite{liseykina}.
+
+\begin{figure}[H]
+    \subimgtwo[img/spna2/pseudo_circ/wlen_800_45deg_hotspots_harmonic_applied_lin.png]{$t = \cfrac{\pi}{4\omega_h}$.}{hotspots_lin:a}{0.62\textwidth}
+    \hfil
+    \subimgtwo[img/spna2/pseudo_circ/wlen_800_90deg_hotspots_harmonic_applied_lin.png]{$t = \cfrac{\pi}{2\omega_h}$.}{hotspots_lin:b}{0.62\textwidth}
+    \\
+    \subimgtwo[img/spna2/pseudo_circ/wlen_800_135deg_hotspots_harmonic_applied_lin.png]{$t = \cfrac{3\pi}{4\omega_h}$.}{hotspots_lin:c}{0.62\textwidth}
+    \caption{"Горячие пятна" электронных пучков на поверхности кластера при линейной поляризации, длина волны падающего поля $\lambda_L = 800$ nm, радиус кластера $R = 200$ nm, плотность кластера в критических единицах $n_{e0} = 22 n_c$.}\label{hotspots_lin:image}
+\end{figure}
+
+Эволюция "горячих пятен", отвечающих электронным сгусткам, генерируемым в результате взаимодействия с кластером, в пределах половины лазерного цикла, показана на~\autoref{hotspots_lin:image}. Видно, что нужного порога достигают "горячие пятна", находящиеся в передней относительно направления $\vectbf{k}{}{}$ области кластера. При этом отрыв происходит поочередно с обеих сторон, так как каждую половину лазерного цикла вектор напряжённости падающего поля меняет свой знак в плоскости поляризации, за счёт колебания амплитуды поля на поверхности электронные сгустки приобретают форму капель~\cite{laura2015}.
+
+\subsection{Взаимодействие с циркулярно-поляризованным излучением}
+
+В случае циркулярной поляризации модуль вектора напряжённости электрического поля сохраняется, но меняется его направление. Соответственно, вслед за непрерывным движением вектора напряжённости вокруг продольной оси движутся и "горячие пятна" (\autoref{hotspots_circ:image}). За счёт того, что напряжённость поля на поверхности кластера остаётся постоянной, генерируемый сгусток электронов оказывается непрерывным и формирует спираль с углом раствора, соответствующим положению средней точки "горячего пятна", так как принимаем движение сгустка электронов в пространстве как целого вдоль нормали к средней точке на кластере~(\autoref{spiral_zy:image}).
+
+    \img[img/spna2/spiral_zy2.png]{Проекция траектории электронного сгустка на плоскость $xy$. Пунктирная линия показывает угол раствора спирали $\theta$.}{spiral_zy:image}{0.5\textwidth}
+
+    \begin{figure}[H]
+        \subimgtwo[img/spna2/pseudo_circ/hotspots_circ_45.png]{$t = \cfrac{\pi}{4\omega_h}$.}{hotspots_circ:a}{0.62\textwidth}
+        \hfil
+        \subimgtwo[img/spna2/pseudo_circ/hotspots_circ_90.png]{$t = \cfrac{\pi}{2\omega_h}$.}{hotspots_circ:b}{0.62\textwidth}
+        \\
+        \subimgtwo[img/spna2/pseudo_circ/hotspots_circ_135.png]{$t = \cfrac{3\pi}{4\omega_h}$.}{hotspots_circ:c}{0.62\textwidth}
+        \caption{"Горячие пятна" электронных пучков на поверхности кластера при циркулярной поляризации, длина волны падающего поля $\lambda_L = 800$ nm, радиус кластера $R = 200$ nm, плотность кластера в критических единицах $n_{e0} = 22 n_c$.}\label{hotspots_circ:image}
+    \end{figure}
